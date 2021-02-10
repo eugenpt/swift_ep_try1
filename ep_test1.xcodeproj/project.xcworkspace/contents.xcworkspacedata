@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/ep/Documents/Dev/Git/apple__ep_try0/HelloWorld/ep_test1.xcodeproj">
    </FileRef>
 </Workspace>

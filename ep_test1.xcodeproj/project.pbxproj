@@ -13,10 +13,11 @@
 		E590EEFA25D2CA3E003DF3A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E590EEF825D2CA3E003DF3A6 /* Main.storyboard */; };
 		E590EEFC25D2CA3F003DF3A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E590EEFB25D2CA3F003DF3A6 /* Assets.xcassets */; };
 		E590EEFF25D2CA3F003DF3A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E590EEFD25D2CA3F003DF3A6 /* LaunchScreen.storyboard */; };
+		E5EFF6E025D4485F0088E62A /* globalVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EFF6DF25D4485F0088E62A /* globalVars.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E590EEEF25D2CA3E003DF3A6 /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E590EEEF25D2CA3E003DF3A6 /* ep_test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ep_test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E590EEF225D2CA3E003DF3A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E590EEF425D2CA3E003DF3A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E590EEF625D2CA3E003DF3A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +25,7 @@
 		E590EEFB25D2CA3F003DF3A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E590EEFE25D2CA3F003DF3A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E590EF0025D2CA3F003DF3A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5EFF6DF25D4485F0088E62A /* globalVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = globalVars.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +50,7 @@
 		E590EEF025D2CA3E003DF3A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E590EEEF25D2CA3E003DF3A6 /* HelloWorld.app */,
+				E590EEEF25D2CA3E003DF3A6 /* ep_test1.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,6 +65,7 @@
 				E590EEFB25D2CA3F003DF3A6 /* Assets.xcassets */,
 				E590EEFD25D2CA3F003DF3A6 /* LaunchScreen.storyboard */,
 				E590EF0025D2CA3F003DF3A6 /* Info.plist */,
+				E5EFF6DF25D4485F0088E62A /* globalVars.swift */,
 			);
 			path = HelloWorld;
 			sourceTree = "<group>";
@@ -70,9 +73,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E590EEEE25D2CA3E003DF3A6 /* HelloWorld */ = {
+		E590EEEE25D2CA3E003DF3A6 /* ep_test1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E590EF0325D2CA3F003DF3A6 /* Build configuration list for PBXNativeTarget "HelloWorld" */;
+			buildConfigurationList = E590EF0325D2CA3F003DF3A6 /* Build configuration list for PBXNativeTarget "ep_test1" */;
 			buildPhases = (
 				E590EEEB25D2CA3E003DF3A6 /* Sources */,
 				E590EEEC25D2CA3E003DF3A6 /* Frameworks */,
@@ -82,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = HelloWorld;
+			name = ep_test1;
 			productName = HelloWorld;
-			productReference = E590EEEF25D2CA3E003DF3A6 /* HelloWorld.app */;
+			productReference = E590EEEF25D2CA3E003DF3A6 /* ep_test1.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -101,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E590EEEA25D2CA3E003DF3A6 /* Build configuration list for PBXProject "HelloWorld" */;
+			buildConfigurationList = E590EEEA25D2CA3E003DF3A6 /* Build configuration list for PBXProject "ep_test1" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -114,7 +117,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E590EEEE25D2CA3E003DF3A6 /* HelloWorld */,
+				E590EEEE25D2CA3E003DF3A6 /* ep_test1 */,
 			);
 		};
 /* End PBXProject section */
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5EFF6E025D4485F0088E62A /* globalVars.swift in Sources */,
 				E590EEF725D2CA3E003DF3A6 /* ViewController.swift in Sources */,
 				E590EEF325D2CA3E003DF3A6 /* AppDelegate.swift in Sources */,
 				E590EEF525D2CA3E003DF3A6 /* SceneDelegate.swift in Sources */,
@@ -293,7 +297,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ep.HelloWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = ep.try1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -312,7 +316,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ep.HelloWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = ep.try1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -322,7 +326,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E590EEEA25D2CA3E003DF3A6 /* Build configuration list for PBXProject "HelloWorld" */ = {
+		E590EEEA25D2CA3E003DF3A6 /* Build configuration list for PBXProject "ep_test1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E590EF0125D2CA3F003DF3A6 /* Debug */,
@@ -331,7 +335,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E590EF0325D2CA3F003DF3A6 /* Build configuration list for PBXNativeTarget "HelloWorld" */ = {
+		E590EF0325D2CA3F003DF3A6 /* Build configuration list for PBXNativeTarget "ep_test1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E590EF0425D2CA3F003DF3A6 /* Debug */,
