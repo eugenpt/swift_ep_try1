@@ -38,11 +38,34 @@ class ViewController: UIViewController {
         
         showHideManual();
         
+        let dbltap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        dbltap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(dbltap)
+
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         
+        //upLabel.layer.borderWidth = 2.0
+        //upLabel.layer.cornerRadius = 8
+        upLabel.isHidden = false;
+        
+        
         onStepperValueChanged(self);
         onSliderValueChanged(self);
+        
+    }
+    var realValue : String = "";
+    var is_fullscreen : Bool = true;
+    @objc func doubleTapped() {
+        is_fullscreen = !is_fullscreen;
+        
+        self.setNeedsStatusBarAppearanceUpdate();
+    }
+    override var prefersStatusBarHidden: Bool {
+        return is_fullscreen
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        //
     }
     
     func updateGlobals(){
@@ -67,20 +90,23 @@ class ViewController: UIViewController {
         
         textInput.text = "";
         textInput.textColor = UIColor.systemBlue;
-        textInput.layer.borderWidth = 1;
+        textInput.layer.borderWidth = 0;
         textInput.layer.borderColor = (UIColor.black).cgColor;
 
-        upLabel.isHidden = true;
+        //upLabel.isHidden = true;
         
         btnRight.isEnabled = false;
         let randomInt = Int.random(in: Int(pow(10,stepperLength.value-1))..<Int(pow(10,stepperLength.value)));
-        upLabel.text = String(randomInt);
+        realValue = String(randomInt);
+//        upLabel.text = String(randomInt);
         
         DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in:0.5..<1.5)) {
-            self.upLabel.isHidden = false;
+//            self.upLabel.isHidden = false;
+            self.upLabel.text = self.realValue;//String(randomInt);
             
             DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(self.theSlider.value)) {
-                self.upLabel.isHidden = true;
+//                self.upLabel.isHidden = true;
+                self.upLabel.text = "";
                 self.btnRight.isEnabled = true;
                 self.textInput.becomeFirstResponder();
             }
@@ -97,11 +123,11 @@ class ViewController: UIViewController {
         if(textInput.text != ""){
             upLabel.isHidden = false;
             textInput.layer.borderWidth = 3;
-            if(textInput.text == upLabel.text){
+            if(textInput.text == realValue){
                 NFailuresInARow = 0;
                 NSUccessInARow += 1;
                 
-                if((NSUccessInARow > 3)                   && (!switchManual.isOn)){
+                if((NSUccessInARow > 3) && (!switchManual.isOn)){
                     NSUccessInARow = 0;
                     // make things harder
                     if(theSlider.value < 0.15){
@@ -147,7 +173,7 @@ class ViewController: UIViewController {
     
     @IBAction func onTextInputValueChanged(_ sender: Any) {
         // auto-"GO" when all OK
-        if(textInput.text == upLabel.text){
+        if(textInput.text == realValue){
             Check();
         }
     }
@@ -165,7 +191,7 @@ class ViewController: UIViewController {
     }
     @IBAction func onIntputTextEditEnd(_ sender: Any) {
         // auto-"GO" when all OK
-        if(textInput.text == upLabel.text){
+        if(textInput.text == realValue){
             Check();
         }
     }
@@ -181,7 +207,7 @@ class ViewController: UIViewController {
     }
     @IBAction func onTextInputEditingChanged(_ sender: Any) {
         // auto-"GO" when all OK
-        if(textInput.text == upLabel.text){
+        if(textInput.text == realValue){
             Check();
         }
     }
