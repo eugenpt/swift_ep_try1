@@ -22,6 +22,13 @@
                                     <action selector="onSwithcManualValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="58k-zr-z19"/>
                                 </connections>
                             </switch>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" on="YES" title="фвыа" translatesAutoresizingMaskIntoConstraints="NO" id="KQu-9N-Hlx">
+                                <rect key="frame" x="33" y="348" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onLabelBorderChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="ruO-Uy-7KT"/>
+                                    <action selector="onSwithcManualValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="DCb-gN-sQf"/>
+                                </connections>
+                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 ms" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGs-UT-XaF">
                                 <rect key="frame" x="18.5" y="427.5" width="283" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
@@ -29,9 +36,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MaW-LC-Fef">
-                                <rect key="frame" x="32" y="264" width="256" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="GO"/>
+                                <rect key="frame" x="104" y="244" width="112" height="80"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="23"/>
+                                <state key="normal" title="GO">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="rightBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vmj-VS-Y9t"/>
                                 </connections>
@@ -48,10 +63,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234567890" textAlignment="center" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="Nwj-ay-k85">
-                                <rect key="frame" x="29.5" y="171.5" width="261" height="55"/>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234567890" borderStyle="roundedRect" textAlignment="center" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="Nwj-ay-k85">
+                                <rect key="frame" x="29.5" y="167.5" width="261" height="63"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="46"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onIntputTextEditEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="xiV-US-0nL"/>
                                     <action selector="onTextInputEditingChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="xGp-zL-DCE"/>
@@ -87,6 +107,12 @@
                                     <action selector="onSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="EK1-mq-be5"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="рамка" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lzs-s8-Wqd">
+                                <rect key="frame" x="99" y="346" width="81.5" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -94,34 +120,41 @@
                             <constraint firstItem="MGs-UT-XaF" firstAttribute="top" secondItem="wGv-K4-4y8" secondAttribute="bottom" constant="10" id="37h-ha-WN7"/>
                             <constraint firstItem="Tgz-qu-jI0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="68C-3M-yHA"/>
                             <constraint firstItem="YPB-6a-Rbc" firstAttribute="top" secondItem="TBy-oF-kSS" secondAttribute="bottom" constant="10" id="6vV-uL-wOm"/>
+                            <constraint firstItem="KQu-9N-Hlx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="Ael-ne-Y59"/>
                             <constraint firstItem="QzU-rR-8LY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="AkK-FK-wQ8"/>
                             <constraint firstItem="YPB-6a-Rbc" firstAttribute="centerY" secondItem="QzU-rR-8LY" secondAttribute="centerY" id="GVO-YA-Ajt"/>
                             <constraint firstItem="Nwj-ay-k85" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.814642" id="K02-dX-jx5"/>
+                            <constraint firstItem="MaW-LC-Fef" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.14" id="TN3-Of-w7u"/>
                             <constraint firstItem="6rf-y2-5bT" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="UD6-ZP-bNI"/>
                             <constraint firstItem="Tgz-qu-jI0" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.35" id="UVZ-rW-A3I"/>
+                            <constraint firstItem="wGv-K4-4y8" firstAttribute="top" secondItem="KQu-9N-Hlx" secondAttribute="bottom" constant="8.5" id="Yyn-BH-uMc"/>
                             <constraint firstItem="MGs-UT-XaF" firstAttribute="centerX" secondItem="wGv-K4-4y8" secondAttribute="centerX" id="Zzf-qa-d3b"/>
                             <constraint firstItem="Tgz-qu-jI0" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.07" id="aKs-Py-ODa"/>
                             <constraint firstItem="MaW-LC-Fef" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ajw-rr-vbb"/>
                             <constraint firstItem="YPB-6a-Rbc" firstAttribute="leading" secondItem="QzU-rR-8LY" secondAttribute="trailing" constant="8" symbolic="YES" id="bf3-FR-vmm"/>
                             <constraint firstItem="Tgz-qu-jI0" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.842995" id="bzo-pb-VQC"/>
                             <constraint firstItem="MGs-UT-XaF" firstAttribute="width" secondItem="wGv-K4-4y8" secondAttribute="width" multiplier="1.0403" id="cC8-ko-cCR"/>
-                            <constraint firstItem="MaW-LC-Fef" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="dHJ-cd-QX3"/>
+                            <constraint firstItem="MaW-LC-Fef" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.35" id="dHJ-cd-QX3"/>
                             <constraint firstItem="MaW-LC-Fef" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dut-rt-1gt"/>
                             <constraint firstItem="wGv-K4-4y8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="f2M-1R-YfJ"/>
                             <constraint firstItem="Nwj-ay-k85" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="f3D-6j-YQI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="QzU-rR-8LY" secondAttribute="bottom" constant="20" id="fi8-SH-YG2"/>
                             <constraint firstItem="Nwj-ay-k85" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.7" id="hOD-nd-3az"/>
+                            <constraint firstItem="Lzs-s8-Wqd" firstAttribute="centerY" secondItem="KQu-9N-Hlx" secondAttribute="centerY" id="pth-lW-vVy"/>
                             <constraint firstItem="wGv-K4-4y8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.85" id="qYD-EL-5vq"/>
+                            <constraint firstItem="Lzs-s8-Wqd" firstAttribute="leading" secondItem="KQu-9N-Hlx" secondAttribute="trailing" constant="17" id="vMc-pG-Y5a"/>
                             <constraint firstItem="6rf-y2-5bT" firstAttribute="top" secondItem="MGs-UT-XaF" secondAttribute="bottom" constant="7.3333333333333428" id="zpp-Qo-Uow"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnRight" destination="MaW-LC-Fef" id="WEf-24-LkI"/>
+                        <outlet property="labelLabelBorder" destination="Lzs-s8-Wqd" id="9Vr-5K-td9"/>
                         <outlet property="lblLength" destination="TBy-oF-kSS" id="7ql-So-sjb"/>
                         <outlet property="lblLengthText" destination="L4G-18-qJI" id="Opp-AR-FLk"/>
                         <outlet property="lblManual" destination="YPB-6a-Rbc" id="wpb-GE-Efb"/>
                         <outlet property="lblSliderValue" destination="MGs-UT-XaF" id="4sp-Ud-8GW"/>
                         <outlet property="stepperLength" destination="Bzr-lA-Z7f" id="tua-Ra-OTQ"/>
+                        <outlet property="switchLabelBorder" destination="KQu-9N-Hlx" id="FCB-yK-p1I"/>
                         <outlet property="switchManual" destination="QzU-rR-8LY" id="C7x-EQ-6g8"/>
                         <outlet property="textInput" destination="Nwj-ay-k85" id="r8L-Z3-svX"/>
                         <outlet property="theSlider" destination="wGv-K4-4y8" id="1tE-rC-MVc"/>
@@ -134,6 +167,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

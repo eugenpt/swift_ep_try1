@@ -22,6 +22,13 @@ class UDvars{
             UserDefaults.standard.synchronize();
         }
     }
+    
+    var labelBorder: Bool = UserDefaults.standard.object(forKey: "labelBorder") as? Bool ?? true{
+        didSet{
+            UserDefaults.standard.set(labelBorder, forKey: "labelBorder")
+            UserDefaults.standard.synchronize();
+        }
+    }
 
     var Length: Int = UserDefaults.standard.object(forKey: "Length") as? Int ?? 6{
         didSet{

@@ -7,6 +7,19 @@
 
 import UIKit
 
+func levDis(_ w1: String, _ w2: String) -> Int {
+    let empty = [Int](repeating:0, count: w2.count)
+    var last = [Int](0...w2.count)
+
+    for (i, char1) in w1.enumerated() {
+        var cur = [i + 1] + empty
+        for (j, char2) in w2.enumerated() {
+            cur[j + 1] = char1 == char2 ? last[j] : min(last[j], last[j + 1], cur[j]) + 1
+        }
+        last = cur
+    }
+    return last.last!
+}
 
 class ViewController: UIViewController {
     //MARK: Properties
@@ -22,6 +35,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var switchManual: UISwitch!
     @IBOutlet weak var lblManual: UILabel!
     
+    @IBOutlet weak var labelLabelBorder: UILabel!
+    @IBOutlet weak var switchLabelBorder: UISwitch!
     @IBOutlet weak var lblLengthText: UILabel!
     
     var NSUccessInARow : Int = 0;
@@ -35,6 +50,7 @@ class ViewController: UIViewController {
 
         switchManual.isOn = globalVars.Manual;
         
+        switchLabelBorder.isOn = globalVars.labelBorder;
         
         showHideManual();
         
@@ -45,8 +61,13 @@ class ViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
         
+        textInput.text = "";
+        textInput.layer.cornerRadius = 20;
+        textInput.layer.masksToBounds = true;
+        
         //upLabel.layer.borderWidth = 2.0
         //upLabel.layer.cornerRadius = 8
+        upLabel.text = "";
         upLabel.isHidden = false;
         
         
@@ -74,6 +95,8 @@ class ViewController: UIViewController {
         globalVars.Duration = theSlider.value;
 
         globalVars.Manual = switchManual.isOn;
+        
+        globalVars.labelBorder = switchLabelBorder.isOn;
     }
     
     func showHideManual(){
@@ -82,6 +105,8 @@ class ViewController: UIViewController {
         lblLengthText.isHidden = !switchManual.isOn;
         lblSliderValue.isHidden = !switchManual.isOn;
         stepperLength.isHidden = !switchManual.isOn;
+        switchLabelBorder.isHidden = !switchManual.isOn;
+        labelLabelBorder.isHidden = !switchManual.isOn;
 
     }
         
@@ -94,18 +119,26 @@ class ViewController: UIViewController {
         textInput.layer.borderColor = (UIColor.black).cgColor;
 
         //upLabel.isHidden = true;
+        upLabel.text = "";
         
         btnRight.isEnabled = false;
         let randomInt = Int.random(in: Int(pow(10,stepperLength.value-1))..<Int(pow(10,stepperLength.value)));
         realValue = String(randomInt);
 //        upLabel.text = String(randomInt);
         
+        
+        if(switchLabelBorder.isOn){
+        upLabel.layer.borderWidth = 1;
+            upLabel.layer.borderColor = (UIColor.systemFill).cgColor;
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + Double.random(in:0.5..<1.5)) {
 //            self.upLabel.isHidden = false;
             self.upLabel.text = self.realValue;//String(randomInt);
             
             DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(self.theSlider.value)) {
 //                self.upLabel.isHidden = true;
+                self.upLabel.layer.borderWidth = 0;
+
                 self.upLabel.text = "";
                 self.btnRight.isEnabled = true;
                 self.textInput.becomeFirstResponder();
@@ -121,8 +154,10 @@ class ViewController: UIViewController {
     
     func Check(){
         if(textInput.text != ""){
-            upLabel.isHidden = false;
+            //upLabel.isHidden = false;
+            upLabel.text = realValue;
             textInput.layer.borderWidth = 3;
+            
             if(textInput.text == realValue){
                 NFailuresInARow = 0;
                 NSUccessInARow += 1;
@@ -142,11 +177,12 @@ class ViewController: UIViewController {
                 }
                 
                 textInput.textColor = UIColor.systemGreen;
-                textInput.layer.borderColor = (UIColor.systemGreen).cgColor;
+            }else if(levDis(textInput.text!, realValue) == 1){
+                textInput.textColor = UIColor.systemOrange;
             }else{
                 NSUccessInARow = 0;
                 NFailuresInARow += 1;
-                
+                                
                 if((NFailuresInARow > 3) && (!switchManual.isOn)){
                     NFailuresInARow = 0;
                     // make things easier
@@ -161,8 +197,9 @@ class ViewController: UIViewController {
                 }
                 
                 textInput.textColor = UIColor.systemRed;
-                textInput.layer.borderColor = (UIColor.systemRed).cgColor;
+                
             }
+            textInput.layer.borderColor = (textInput.textColor!).cgColor;
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.Run();
             }
@@ -204,6 +241,9 @@ class ViewController: UIViewController {
         
         updateGlobals();
 
+    }
+    @IBAction func onLabelBorderChange(_ sender: Any) {
+        updateGlobals();
     }
     @IBAction func onTextInputEditingChanged(_ sender: Any) {
         // auto-"GO" when all OK
